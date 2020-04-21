@@ -25,9 +25,10 @@ class LRUCache:
         # None handler 
         if key not in self.cache:
             return None
-        value = self.cache[key]
-        self.storage.move_to_front(value)
-        return value
+        else:
+            new_value = self.cache[key]
+            self.storage.move_to_front(new_value)
+            return new_value.value[1]
 
     """
     Adds the given key-value pair to the cache. The newly-
@@ -49,6 +50,7 @@ class LRUCache:
             new_node.value = (key, value)
             self.storage.move_to_front(new_node)
         elif self.storage.length >= self.limit:
+            del self.cache[self.storage.tail.value[0]]
             self.storage.remove_from_tail()
 
         self.storage.add_to_head((key, value))
