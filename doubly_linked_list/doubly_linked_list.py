@@ -108,11 +108,10 @@ class DoublyLinkedList:
         value = node.value
         if node is self.tail:
             self.remove_from_tail()
-            self.add_to_head(value)
         else:
             node.delete()
             self.length -= 1
-            self.add_to_head(value)
+        self.add_to_head(value)
 
     """Removes the input node from its current spot in the
     List and inserts it as the new tail node of the List."""
@@ -123,11 +122,10 @@ class DoublyLinkedList:
         value = node.value
         if node is self.head:
             self.remove_from_head()
-            self.add_to_tail(value)
         else:
             node.delete()
             self.length -= 1
-            self.add_to_tail(value)
+        self.add_to_tail(value)
 
     """Removes a node from the list and handles cases where
     the node was the head or the tail"""
