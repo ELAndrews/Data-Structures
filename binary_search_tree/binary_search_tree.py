@@ -91,12 +91,16 @@ class BinarySearchTree:
     def bft_print(self, node):
         ## tree hight counter
         ## queue print data
-
-
-        pass
+        q = []
+        q.append(node)
+        while len(q):
+            curr_node = q.pop(0)
+            if curr_node.left:
+                q.append(curr_node.left)
+            if curr_node.right:
+                q.append(curr_node.right)
+            print(curr_node.value)
             
-                
-
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
