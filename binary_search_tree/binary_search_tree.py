@@ -36,31 +36,66 @@ class BinarySearchTree:
         if self.value == target:
             return True
         if target > self.value:
-            if self.left is None:
+            if self.right is None:
                 return False
             else:
                 return self.right.contains(target)
+        if target < self.value:
+            if self.left is None:
+                return False
+            else:
+                return self.left.contains(target)
 
     # Return the maximum value found in the tree
     def get_max(self):
-        pass
+            if self.right is None:
+                return self.value
+            else:
+                return self.right.get_max()
+
 
     # Call the function `cb` on the value of each node
     # You may use a recursive or iterative approach
     def for_each(self, cb):
-        pass
+            cb(self.value)
+            if self.left is not None:
+                self.left.for_each(cb)
+            if self.right is not None:
+                self.right.for_each(cb)
+
+            
+
 
     # DAY 2 Project -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
+        # DFS => begin with the root node then transver its children 
     def in_order_print(self, node):
-        pass
+        
+        def print_each(root):
+            if root:
+                print_each(root.left)
+                print(root.value)
+                print_each(root.right)
+
+        return print_each(self)
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
+        # BFS starts at root , explors neighbour nodes at present depth BEFORE moving on
     def bft_print(self, node):
-        pass
+        ## tree hight counter
+        ## queue print data
+        if node.value is None:
+            return
+
+        return 
+
+            
+                
+
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal

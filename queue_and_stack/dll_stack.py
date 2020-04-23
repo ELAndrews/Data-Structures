@@ -16,9 +16,8 @@ class Stack:
 
     def pop(self):
         if self.size >= 1:
-            removed = self.storage.remove_from_tail()
             self.size -= 1
-            return removed
+            return self.storage.remove_from_tail()
 
     def len(self):
         return self.size
