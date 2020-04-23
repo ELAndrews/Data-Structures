@@ -72,14 +72,17 @@ class BinarySearchTree:
     # Hint:  Use a recursive, depth first traversal
         # DFS => begin with the root node then transver its children 
     def in_order_print(self, node):
-        
-        def print_each(root):
-            if root:
-                print_each(root.left)
-                print(root.value)
-                print_each(root.right)
+        if node is None:
+            return
+        if self.left is not None:
+            self.left.in_order_print(self.left)
+            
+        print(self.value)
 
-        return print_each(self)
+        if self.right is not None:
+            self.right.in_order_print(self.right)
+            
+
 
 
     # Print the value of every node, starting with the given node,
@@ -88,11 +91,9 @@ class BinarySearchTree:
     def bft_print(self, node):
         ## tree hight counter
         ## queue print data
-        if node.value is None:
-            return
 
-        return 
 
+        pass
             
                 
 
@@ -100,7 +101,11 @@ class BinarySearchTree:
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        print(self.value)
+        if self.left is not None:
+            self.left.bft_print()
+        elif self.right is not None:
+            self.right,bft_print()
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
